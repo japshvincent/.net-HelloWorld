@@ -12,4 +12,4 @@ phases:
 artifacts:
   files:
     - '*\**'
-  base-directory: HelloWorld/bin/appPublish/
+  base-directory: bin\appPublish\
