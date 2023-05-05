@@ -8,8 +8,9 @@ phases:
   build:
     commands:
       - nuget restore
-      - msbuild $env:PROJECT.sln /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployOnBuild=True /p:DeployDefaultTarget=WebPublish /p:Platform="Any CPU" /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl=bin\appPublish\
+      - msbuild WebAdmin.sln /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployOnBuild=True /p:Platform="Any CPU" /p:DeleteExistingFiles=True /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=C:\artifacts
 artifacts:
-  base-directory: HelloWorld\bin\appPublish
   files:
-    - '*\**'
+    - '**/*'
+  base-directory: "C:\\artifacts"
+  name: HelloWorld-$(Get-Date -UFormat "%Y%m%d-%H%M%S")
